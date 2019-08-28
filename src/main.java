@@ -14,15 +14,16 @@ public class main {
             switch(printMenu()){
                 case 1:vs.printEtat();break;
                 case 2:nextPlanete();break;
-                case 3:break;
-                case 4:break;
+                case 3:vs.wantToUseItem(sc);break;
+                case 4:vs.wantToGoBack();break;
             }
         }
     }
     public static void nextPlanete(){
         Planete rep;
         int rand=(int)(Math.random()*5);
-        vs.visite(planetes.all[rand]);
+        rep=planetes.all[rand];
+        vs.visite(rep);
         System.out.println("Vous visitez la planete "+rep.getNom());
     }
     public static int printMenu(){

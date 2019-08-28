@@ -1,6 +1,8 @@
 package planete;
 
 public class Planete {
+
+
     int danger;
     String nom;
     public Planete(String nom,int danger){this.nom=nom;this.danger=danger;};
@@ -8,6 +10,10 @@ public class Planete {
 
 
 
-        return danger;}
-        public String getNom(){return nom;}
+        return danger;
+    }
+    public String getNom(){return nom;}
+    public int getDanger() {
+        return danger;
+    }
 }
