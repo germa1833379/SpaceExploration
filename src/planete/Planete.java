@@ -1,3 +1,5 @@
+package planete;
+
 public class Planete {
     int danger;
     String nom;
@@ -7,4 +9,5 @@ public class Planete {
 
 
         return danger;}
+        public String getNom(){return nom;}
 }

@@ -1,5 +1,5 @@
 package Items;
-
-public interface Item {
-    public void utiliser();
+public abstract class Item implements usable{
+    protected String nom;
+    public String getNom(){return nom;};
 }

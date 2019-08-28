@@ -2,9 +2,9 @@ package Items;
 
 import vaisseau.Vaisseau;
 
-public class clerAMolette extends Item {
-    public clerAMolette(){
-        nom="Cler A Molette";
+public class jerrican extends Item{
+    public jerrican(){
+        nom="Jerrican";
     }
     public void utiliser(Vaisseau vs){
         vs.damage(-50);
