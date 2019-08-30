@@ -21,10 +21,12 @@ public class main {
     }
     public static void nextPlanete(){
         Planete rep;
-        int rand=(int)(Math.random()*5);
+        int rand=(int)(Math.random()*4);
         rep=planetes.all[rand];
-        vs.visite(rep);
         System.out.println("Vous visitez la planete "+rep.getNom());
+        vs.visite(rep);
+
+
     }
     public static int printMenu(){
         System.out.println("Que voulez-vous faire?\n1-Examiner l'état du vaisseaux\n2-Aller a la prochaine planete\n3-Utiliser un objet de l'inventaire\n4-Revenir a la planete précédente");

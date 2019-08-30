@@ -7,12 +7,12 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Vaisseau {
+    private Stack<Planete> travelLog=new Stack<>();
     public Vaisseau(){
-        travelLog.add(planetes.terre);
+        travelLog.push(planetes.terre);
     }
     private int pv=500,maxPv=500,gas=10,nbLaser=0;
-    private ArrayList<Item> inventaire;
-    private Stack<Planete> travelLog;
+    private ArrayList<Item> inventaire=new ArrayList<>();
     public void damage(int dmg){pv-=dmg;}
     public void wantToUseItem(Scanner sc){
         if(inventaire.size()>=1) {
@@ -24,7 +24,7 @@ public class Vaisseau {
             int rep=sc.nextInt();
             boolean gotIt=false;
             for(int i=0;i<inventaire.size();i++){
-                if(rep==i){
+                if(rep==i+1){
                     gotIt=true;
                 }
             }
@@ -77,12 +77,14 @@ public class Vaisseau {
                 System.out.println("Vous recevez Cler A Molette.");
                 break;
                 }
+                gas-=1;
                 }
     public void wantToGoBack(){
         if (travelLog.peek().equals(planetes.terre)){
             System.out.println("Vous ne pouvez retourner en arriere.");
         }else{
             travelLog.pop();
+            System.out.println("Vous etes revenues en arrière.");
         }
     }
 
