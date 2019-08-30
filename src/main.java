@@ -10,7 +10,7 @@ public class main {
     public static void main(String[] args) {
 
         System.out.println("Bienvenue sur Space Explorer\nVous etes présentement sur l'orbite de la terre.");
-        while (vs.getPv()>0){
+        while (vs.getPv()>0&&vs.getGas()>0){
             switch(printMenu()){
                 case 1:vs.printEtat();break;
                 case 2:nextPlanete();break;
@@ -18,6 +18,13 @@ public class main {
                 case 4:vs.wantToGoBack();break;
             }
         }
+        if(vs.getPv()<=0){
+            System.out.println("Vous etes mort.");
+        }else
+            System.out.println("Vous avez manqué de gas.");
+
+        System.out.println("Votre vaisseau a parcourue ces planetes : ");
+        vs.printTravel();
     }
     public static void nextPlanete(){
         Planete rep;

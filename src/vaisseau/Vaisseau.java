@@ -29,13 +29,16 @@ public class Vaisseau {
                 }
             }
             if(gotIt){
-                inventaire.get(rep-1);
+                Item inUse=inventaire.get(rep-1);
+                inUse.utiliser(this);
+                inventaire.remove(rep-1);
             }else
                 System.out.println("Mauvaise entrée.");
         }else{
             System.out.println("Vous n'avez pas d'objet.");
         }
     }
+    public int getGas(){return gas;}
     public void storeItem(Item i){inventaire.add(i);}
     public void addMaxPv(int i){maxPv+=i;}
     public void addLaserShot(){nbLaser++;}
@@ -43,10 +46,21 @@ public class Vaisseau {
     public void printEtat(){
         System.out.println("PV = "+pv+"\nGas = "+gas);
     }
+    public void printTravel(){
+        System.out.print("Terre");
+        for(int i =0;i<travelLog.size()-1;i++){
+            printFleche();
+            System.out.print(travelLog.get(i+1).getNom());
+        }
+    }
+    private void printFleche(){
+        System.out.print(" --> ");
+    }
     public void visite(Planete plan){
         travelLog.add(plan);
         if(nbLaser>0) {
             System.out.println("Votre laser tue les pirates d'un coup, votre vaisseaux n'a rien eu.");
+            nbLaser--;
         }else {
             int degat = plan.getDanger() * 20;
             damage(degat);
